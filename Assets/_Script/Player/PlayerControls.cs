@@ -8,6 +8,11 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float clampX = 3f;
     [SerializeField] private float clampZ = 2f;
 
+    [Header("Player Grounded Status")]
+    [SerializeField][Tooltip("Empty Transform placed under player feet")] private Transform groundCheck;
+    [SerializeField] private float groundDistanceRadius = 0.4f;
+    [SerializeField] private LayerMask groundLayer;
+
     private Rigidbody rigidBody;
     private Vector2 movementValue;
 
@@ -28,8 +33,15 @@ public class PlayerControls : MonoBehaviour
 
     private void HandleMovement()
     {
+        float yPos = rigidBody.position.y;
         Vector3 currentPosition = rigidBody.position;
-        Vector3 moveDirection = new Vector3(movementValue.x, 0, movementValue.y);
+
+        if (IsGrounded())
+        {
+            yPos = 0f;
+        }
+
+        Vector3 moveDirection = new Vector3(movementValue.x, yPos, movementValue.y);
         Vector3 newPosition = currentPosition + moveDirection * moveSpeed * Time.fixedDeltaTime;
 
         newPosition.x = Mathf.Clamp(newPosition.x, -clampX, clampX);
@@ -37,4 +49,19 @@ public class PlayerControls : MonoBehaviour
 
         rigidBody.MovePosition(newPosition);
     }
+
+    private bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, groundDistanceRadius, groundLayer);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if(groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, groundDistanceRadius);
+        }
+    }
+
 }

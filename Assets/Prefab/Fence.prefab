@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2683146725113360474}
   m_Layer: 0
   m_Name: Fence
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 4360477641135787268}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
