@@ -34,7 +34,7 @@ public class Chunk : MonoBehaviour
     {
         if (!allowFence) return;
 
-        int fenceToSpawn = Random.Range(0, lanes.Length - 1);
+        int fenceToSpawn = Random.Range(0, lanes.Length);
 
         for(int i = 0; i < fenceToSpawn; i++)
         {

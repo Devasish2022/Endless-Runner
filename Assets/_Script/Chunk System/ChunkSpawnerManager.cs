@@ -4,7 +4,7 @@ using UnityEngine;
 public class ChunkSpawnerManager : MonoBehaviour
 {
     [Header("Chunk Prefab")]
-    [SerializeField] private GameObject chunkPrefab;
+    [SerializeField] private List<GameObject> chunkPrefabs;
     [SerializeField] private Transform chunkParent;
 
     [Header("Chunk Spawn Setting")]
@@ -54,7 +54,8 @@ public class ChunkSpawnerManager : MonoBehaviour
         Vector3 chunkSpawnPosition = new Vector3(transform.position.x, transform.position.y, spawnPositionZ);
 
         chunkSpawnCount++;
-        GameObject newChunkGO = Instantiate(chunkPrefab, chunkSpawnPosition , Quaternion.identity , chunkParent);
+        int randomChunkIndex = Random.Range(0, chunkPrefabs.Count);
+        GameObject newChunkGO = Instantiate(chunkPrefabs[randomChunkIndex], chunkSpawnPosition , Quaternion.identity , chunkParent);
         Chunks.Add(newChunkGO);
 
         if (chunkSpawnCount <= notSpawnFence) newChunkGO.GetComponent<Chunk>().allowFence = false;

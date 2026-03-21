@@ -1986,7 +1986,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d2b82d2085b4254fb44b09aa8fcd4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChunkSpawnerManager
-  chunkPrefab: {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
+  chunkPrefabs:
+  - {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
+  - {fileID: 4414450870888010349, guid: 37785405ff1d6144e963f032f228851a, type: 3}
+  - {fileID: 2377072632852753125, guid: 8005a06c1a3f5694fb0e435799cc29c6, type: 3}
+  - {fileID: 4392428081473357572, guid: 7ee9c0417a9e40841b32a682cfde90e2, type: 3}
+  - {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
+  - {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
+  - {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
+  - {fileID: 1613715274131844744, guid: bd2353e4169cce24a9b8ab7d508e3399, type: 3}
   chunkParent: {fileID: 401226175}
   chunkCount: 12
   chunkLength: 10
@@ -2212,6 +2220,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 47176664-10ab-4f14-900c-5707ec606a64
     m_ActionName: 'Movement/WASD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1668925944}
+        m_TargetAssemblyTypeName: PlayerControls, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c8970637-df1e-48cd-a552-c54aeb415156
+    m_ActionName: 'Movement/Jump[/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Movement
@@ -2232,6 +2256,8 @@ MonoBehaviour:
   moveSpeed: 5
   clampX: 3
   clampZ: 2
+  jumpHeight: 2
+  gravityValue: -9.81
   groundCheck: {fileID: 26059467}
   groundDistanceRadius: 0.4
   groundLayer:
@@ -2259,7 +2285,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
